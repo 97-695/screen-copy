@@ -88,4 +88,7 @@
     padding: 2px 8px;
     font-size: 0.75rem;
   }
+  .bg-cta {
+    background: linear-gradient(135deg, hsl(346 85% 58%), hsl(346 70% 50%));
+  }
 }
