@@ -75,7 +75,7 @@
     color: hsl(var(--old-price));
   }
   .bg-flash {
-    background: linear-gradient(135deg, hsl(346 85% 58%), hsl(15 90% 55%));
+    background: linear-gradient(135deg, hsl(24 90% 55%), hsl(15 90% 50%));
   }
   .bg-flash-light {
     background-color: hsl(var(--flash-light));
