@@ -4,6 +4,7 @@ import produtoImg from "@/assets/produto-principal.png";
 import controleImg from "@/assets/controle-remoto.png";
 import DiscountPopup from "./DiscountPopup";
 import VoltageModal from "./VoltageModal";
+import SocialProof from "./SocialProof";
 
 const ProductPage = () => {
   const [showDiscount, setShowDiscount] = useState(true);
@@ -82,11 +83,14 @@ const ProductPage = () => {
       </div>
 
       {/* Title */}
-      <div className="flex-1 bg-card px-4 py-3">
+      <div className="bg-card px-4 py-3">
         <h1 className="text-base font-medium leading-snug text-foreground">
           Ar-Condicionado Split Inverter Hisense 9.000 BTUs Frio/Quente | Silencioso, Econômico, Fácil Instalação e
         </h1>
       </div>
+
+      {/* Social Proof */}
+      <SocialProof />
 
       {/* Bottom bar */}
       <div className="sticky bottom-0 flex items-center border-t border-border bg-card">
@@ -103,7 +107,7 @@ const ProductPage = () => {
         </button>
         <button
           onClick={() => setShowVoltage(true)}
-          className="flex-1 bg-flash py-3.5 text-sm font-bold text-primary-foreground"
+          className="flex-1 bg-cta py-3.5 text-sm font-bold text-primary-foreground"
         >
           Comprar com cupom
         </button>
