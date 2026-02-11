@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { X, Share2, ShoppingCart, MoreHorizontal, ChevronLeft, ChevronRight, Zap, Store, MessageCircle } from "lucide-react";
-import produtoImg from "@/assets/produto.png";
+import produtoImg from "@/assets/produto-principal.png";
+import controleImg from "@/assets/controle-remoto.png";
 import DiscountPopup from "./DiscountPopup";
 import VoltageModal from "./VoltageModal";
 

@@ -1,6 +1,6 @@
 import { X, Zap, Gift } from "lucide-react";
 import { useState } from "react";
-import produtoImg from "@/assets/produto.png";
+import produtoImg from "@/assets/produto-principal.png";
 
 interface VoltageModalProps {
   open: boolean;
