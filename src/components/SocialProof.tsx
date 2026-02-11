@@ -1,4 +1,9 @@
 import { Star, ThumbsUp } from "lucide-react";
+import fernandaImg from "@/assets/review-fernanda.png";
+import anapaulaImg from "@/assets/review-anapaula.png";
+import carlosImg from "@/assets/review-carlos.png";
+import robertoImg from "@/assets/review-roberto.png";
+import marianaImg from "@/assets/review-mariana.png";
 
 interface Review {
   name: string;
@@ -7,6 +12,7 @@ interface Review {
   variation: string;
   text: string;
   helpful: number;
+  avatar: string;
 }
 
 const reviews: Review[] = [
@@ -17,6 +23,7 @@ const reviews: Review[] = [
     variation: "220V",
     text: "Produto de qualidade! Chegou muito bem embalado e a instalação foi tranquila. Funciona perfeitamente, tanto no frio quanto no quente. Recomendo!",
     helpful: 189,
+    avatar: fernandaImg,
   },
   {
     name: "Carlos M.",
@@ -25,6 +32,7 @@ const reviews: Review[] = [
     variation: "110V",
     text: "Excelente custo-benefício! Silencioso e econômico. Já é o segundo que compro, dessa vez para o quarto. Entrega rápida!",
     helpful: 142,
+    avatar: carlosImg,
   },
   {
     name: "Ana Paula S.",
@@ -33,6 +41,25 @@ const reviews: Review[] = [
     variation: "220V",
     text: "Melhor compra que fiz! O ar gela muito rápido e o controle remoto é super prático. Veio com brinde também. Super satisfeita!",
     helpful: 97,
+    avatar: anapaulaImg,
+  },
+  {
+    name: "Roberto F.",
+    stars: 5,
+    date: "2025-01-08 14:20",
+    variation: "110V",
+    text: "Muito bom! Instalação simples e o aparelho é bem silencioso. Resfria o ambiente rapidamente. Recomendo demais!",
+    helpful: 76,
+    avatar: robertoImg,
+  },
+  {
+    name: "Mariana L.",
+    stars: 5,
+    date: "2025-01-10 11:00",
+    variation: "220V",
+    text: "Adorei! Design bonito e funciona super bem. O controle remoto facilita muito. Chegou antes do prazo!",
+    helpful: 63,
+    avatar: marianaImg,
   },
 ];
 
@@ -52,9 +79,11 @@ const SocialProof = () => {
         {reviews.map((review) => (
           <div key={review.name} className="rounded-xl border border-border bg-background p-3">
             <div className="mb-1 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
-                {review.name.charAt(0)}
-              </div>
+              <img
+                src={review.avatar}
+                alt={review.name}
+                className="h-8 w-8 rounded-full object-cover"
+              />
               <div>
                 <p className="text-sm font-semibold text-foreground">{review.name}</p>
                 <div className="flex gap-0.5">
