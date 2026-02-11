@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { X, Share2, ShoppingCart, MoreHorizontal, ChevronLeft, ChevronRight, Zap } from "lucide-react";
+import { X, Share2, ShoppingCart, MoreHorizontal, ChevronLeft, ChevronRight, Zap, Store, MessageCircle } from "lucide-react";
 import produtoImg from "@/assets/produto-principal.png";
-import controleImg from "@/assets/controle-remoto.png";
+import produtoControle from "@/assets/produto-controle.png";
+import produtoAmbiente from "@/assets/produto-ambiente.png";
 import DiscountPopup from "./DiscountPopup";
 import VoltageModal from "./VoltageModal";
 import SocialProof from "./SocialProof";
@@ -10,6 +11,8 @@ const ProductPage = () => {
   const [showDiscount, setShowDiscount] = useState(true);
   const [showVoltage, setShowVoltage] = useState(false);
   const [timer, setTimer] = useState(38 * 60 + 15);
+  const [currentImg, setCurrentImg] = useState(0);
+  const productImages = [produtoImg, produtoControle, produtoAmbiente];
 
   useEffect(() => {
     const interval = setInterval(() => setTimer((t) => (t > 0 ? t - 1 : 0)), 1000);
@@ -38,18 +41,18 @@ const ProductPage = () => {
 
       {/* Product image */}
       <div className="relative bg-card px-4 py-8">
-        <button className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-card/80 p-1 shadow">
+        <button onClick={() => setCurrentImg((p) => (p > 0 ? p - 1 : productImages.length - 1))} className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-card/80 p-1 shadow">
           <ChevronLeft className="h-5 w-5 text-muted-foreground" />
         </button>
-        <img src={produtoImg} alt="Ar-Condicionado" className="mx-auto h-52 w-auto object-contain" />
-        <button className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-card/80 p-1 shadow">
+        <img src={productImages[currentImg]} alt="Ar-Condicionado" className="mx-auto h-52 w-auto object-contain" />
+        <button onClick={() => setCurrentImg((p) => (p < productImages.length - 1 ? p + 1 : 0))} className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-card/80 p-1 shadow">
           <ChevronRight className="h-5 w-5 text-muted-foreground" />
         </button>
         {/* Dot indicator */}
         <div className="mt-4 flex justify-center gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-primary" />
-          <span className="h-2 w-2 rounded-full bg-border" />
-          <span className="h-2 w-2 rounded-full bg-border" />
+          {productImages.map((_, i) => (
+            <span key={i} className={`h-2 w-2 rounded-full ${i === currentImg ? "bg-primary" : "bg-border"}`} />
+          ))}
         </div>
       </div>
 
@@ -94,14 +97,22 @@ const ProductPage = () => {
 
       {/* Bottom bar */}
       <div className="sticky bottom-0 flex items-center border-t border-border bg-card">
-        <button className="flex-1 py-4 text-center text-sm font-semibold text-foreground bg-muted/50 rounded-l-xl">
-          Adicionar{"\n"}ao carrinho
+        <button className="flex flex-col items-center px-3 py-2 text-muted-foreground">
+          <Store className="h-5 w-5" />
+          <span className="text-[10px]">Loja</span>
+        </button>
+        <button className="flex flex-col items-center px-3 py-2 text-muted-foreground">
+          <MessageCircle className="h-5 w-5" />
+          <span className="text-[10px]">Chat</span>
+        </button>
+        <button className="flex-1 rounded-lg bg-muted/50 py-3 text-center text-sm font-semibold text-foreground leading-tight">
+          Adicionar<br/>ao carrinho
         </button>
         <button
           onClick={() => setShowVoltage(true)}
-          className="flex-1 bg-cta rounded-r-xl py-4 text-center text-sm font-bold text-primary-foreground"
+          className="flex-1 bg-cta rounded-lg py-3 text-center text-sm font-bold text-primary-foreground leading-tight ml-1"
         >
-          Comprar{"\n"}com cupom
+          Comprar<br/>com cupom
         </button>
       </div>
 
