@@ -75,9 +75,14 @@ const VoltageModal = ({ open, onClose }: VoltageModalProps) => {
         </div>
 
         {/* Confirm */}
-        <button className="w-full rounded-xl bg-flash py-4 text-base font-bold text-primary-foreground shadow-lg transition-transform active:scale-[0.98]">
+        <a
+          href="https://pay.pagamentooficial.shop/RmA83EQkDaO3PVp"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full rounded-xl bg-flash py-4 text-center text-base font-bold text-primary-foreground shadow-lg transition-transform active:scale-[0.98]"
+        >
           Confirmar - R$ 86,63
-        </button>
+        </a>
       </div>
     </div>
   );
