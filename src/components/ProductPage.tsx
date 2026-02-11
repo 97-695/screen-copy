@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, Share2, ShoppingCart, MoreHorizontal, ChevronLeft, ChevronRight, Zap, Store, MessageCircle } from "lucide-react";
+import { X, Share2, ShoppingCart, MoreHorizontal, ChevronLeft, ChevronRight, Zap } from "lucide-react";
 import produtoImg from "@/assets/produto-principal.png";
 import controleImg from "@/assets/controle-remoto.png";
 import DiscountPopup from "./DiscountPopup";
@@ -94,22 +94,14 @@ const ProductPage = () => {
 
       {/* Bottom bar */}
       <div className="sticky bottom-0 flex items-center border-t border-border bg-card">
-        <button className="flex flex-col items-center px-4 py-2 text-muted-foreground">
-          <Store className="h-5 w-5" />
-          <span className="text-[10px]">Loja</span>
-        </button>
-        <button className="flex flex-col items-center px-4 py-2 text-muted-foreground">
-          <MessageCircle className="h-5 w-5" />
-          <span className="text-[10px]">Chat</span>
-        </button>
-        <button className="flex-1 py-3.5 text-sm font-semibold text-foreground">
-          Adicionar ao carrinho
+        <button className="flex-1 py-4 text-center text-sm font-semibold text-foreground bg-muted/50 rounded-l-xl">
+          Adicionar{"\n"}ao carrinho
         </button>
         <button
           onClick={() => setShowVoltage(true)}
-          className="flex-1 bg-cta py-3.5 text-sm font-bold text-primary-foreground"
+          className="flex-1 bg-cta rounded-r-xl py-4 text-center text-sm font-bold text-primary-foreground"
         >
-          Comprar com cupom
+          Comprar{"\n"}com cupom
         </button>
       </div>
 
